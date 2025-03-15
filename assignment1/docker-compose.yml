@@ -1,0 +1,13 @@
+services:
+  assignment1:
+    build:
+      context: assignment1
+      dockerfile: Dockerfile
+  nginx:
+   image: nginx:latest
+   ports:
+     - "80:80"
+   volumes:
+     - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+   depends_on:
+     - assignment1
